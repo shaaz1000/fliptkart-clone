@@ -19,14 +19,14 @@ const SubHeader = styled(Typography)`
 `;
 
 const PlusImage = styled("img")({
-    width: 10,
-    height: 10,
-    marginLeft:4
+  width: 10,
+  height: 10,
+  marginLeft: 4,
 });
 
 const CustomButtonWrapper = styled(Box)`
-margin: 0 5% 0 auto;
-`
+  margin: 0 5% 0 auto;
+`;
 const Header = () => {
   const logoURL =
     "https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/flipkart-plus_8d85f4.png";
@@ -34,10 +34,10 @@ const Header = () => {
     "https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/plus_aef861.png";
   return (
     <StyledHeader>
-      <Toolbar style={{minHeight: 55}}>
+      <Toolbar style={{ minHeight: 55 }}>
         <StyledBox>
           <img src={logoURL} alt="logo" style={{ width: 75 }} />
-          <Box style={{display: 'flex'}}>
+          <Box style={{ display: "flex" }}>
             <SubHeader>
               Explore&nbsp;
               <Box component="span" style={{ color: "#ffe500" }}>
@@ -46,11 +46,11 @@ const Header = () => {
             </SubHeader>
             <PlusImage src={subURL} alt="sub logo" style={{}} />
           </Box>
-              </StyledBox>
-              <Search />
-              <CustomButtonWrapper>
-                  <CustomButtons/>
-              </CustomButtonWrapper>
+        </StyledBox>
+        <Search />
+        <CustomButtonWrapper>
+          <CustomButtons />
+        </CustomButtonWrapper>
       </Toolbar>
     </StyledHeader>
   );
