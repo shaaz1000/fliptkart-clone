@@ -1,7 +1,8 @@
 import { Box, Button, Typography, styled } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { ShoppingCart } from "@mui/icons-material";
-
+import LoginDialogue from "../Login/LoginDialogue";
+import { useSelector, useDispatch } from "react-redux";
 const ButtonWrapper = styled(Box)`
   display: flex;
   margin: 0 3% 0 auto;
@@ -32,9 +33,19 @@ const Container = styled(Box)`
 `;
 
 const CustomButtons = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const { emailOrMobileNumber, name } = useSelector((state) => state.auth);
+
   return (
     <ButtonWrapper>
-      <LoginButton variant="contained">Login</LoginButton>
+      {emailOrMobileNumber !== "" ? (
+        <Typography>{name}</Typography>
+      ) : (
+        <LoginButton variant="contained" onClick={() => setIsOpen(!isOpen)}>
+          Login
+        </LoginButton>
+      )}
+
       <Typography
         style={{ marginTop: 3, width: 135, marginRight: 10, marginLeft: 10 }}
       >
@@ -47,6 +58,7 @@ const CustomButtons = () => {
         <ShoppingCart />
         <Typography>Cart</Typography>
       </Container>
+      <LoginDialogue isOpen={isOpen} setIsOpen={setIsOpen} />
     </ButtonWrapper>
   );
 };
